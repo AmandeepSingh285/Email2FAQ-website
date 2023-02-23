@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}  
+         {% if messages %} 
+         <br><br><br>
+            <div class="container"> 
+               {% for message in messages %}  
+                  <div class="alert alert-warning alert-dismissible" align="center">
+                    <strong>Warning! </strong> {{message}}!
+                    <a href="/" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  </div>
+               {% endfor %}
+            </div>
+         {% endif %}  
+      {% endwith %} 
+
+
+    <title>EmailToFAQ</title>
+    </head>
+    <body>
+      <h1 style="text-align: center;">Email Upload</h1>
+      <br><br> 
+      <div class="text-center">
+        <form class="inputForm" action = '/', method=post enctype=multipart/form-data>
+          <h4>Upload new File</h4><br>
+          <div class="container" align="center">
+          <div class="upload" align="center">
+            <input class="form-control" id="formFileLg" type=file name=file accept=".csv" required><br>
+          </div></div><br><br><br>
+          
+          <div class="sub-main">
+            <button class="button-two"><span>Submit</span></button>
+          </div>
+        </form>
+      </div>
+{% endblock %}
